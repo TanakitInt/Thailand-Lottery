@@ -57,6 +57,15 @@ def inputErrorMessage():
 """
         )
 
+def ticketSoldOut():
+    #No ticket left
+
+    print(
+"""
+!!!   THERE IS NO TICKET LEFT!  !!!
+"""
+        )
+
 def menu():
     #main menu
 
@@ -105,9 +114,9 @@ def game():
     #dateData[1] will be month
     #dateData[2] will be day
 
-    yearData = int(datetime[0])
-    monthData = int(datetime[1])
-    dayData = int(datetime[2])
+    yearData = int(dateData[0])
+    monthData = int(dateData[1])
+    dayData = int(dateData[2])
 
     #today date and time
     print("Today time is (Year-Month-Day) :")
@@ -116,23 +125,118 @@ def game():
     print("Next lottery date is (Year-Month-Day) :")
 
     #condition check
-    if dateData > 15:
+    if dayData > 15 and dayData <= 31:
+        day = 1
         month = monthData + 1
+        year = yearData
+
         if month > 12:
             month = 1
             year = yearData + 1
         else:
             pass
 
-    elif dateData >= 1 and dateData <= 15
-        
+    elif dayData == 1:
+        day = 1
+        month = monthData
+        year = yearData
+
+    elif dayData > 1 and dayData <= 15:
+        day = 15
+        month = monthData
+        year = yearData
+    
+    print(str(year) + "-" + str(month) + "-" + str(day))
 
 
+    #lottery draw MAX = 50
+    lotteryTicket = 50
+    allowedAmount = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+
+    print(
+"""
+# A MAXIMUM 50 TICKETS CAN BE PURCHASED #
+"""
+        )
+
+    #1st TIER
+    while True:
+        firstTicket = int(input("Input ticket(s) for TIER 1 drawing : "))
+
+        if firstTicket in allowedAmount:
+            
+            return firstTicket
+
+        else:
+            inputErrorMessage()
+
+    lotteryTicket = lotteryTicket - firstTicket
+
+    print("Ticket left : " + str(lotteryTicket))
+
+    if lotteryTicket <= 0:
+        lotteryTicket = 0
+
+        ticketSoldOut()
+
+        choosenumber()
+
+    else:
+        pass
+
+    #2nd TIER
+    while True:
+        secondTicket = int(input("Input ticket(s) for TIER 2 drawing : "))
+
+        if secondTicket in allowedAmount:
+            
+            return secondTicket
+
+        else:
+            inputErrorMessage()
+
+    lotteryTicket = lotteryTicket - secondTicket
+
+    print("Ticket left : " + str(lotteryTicket))
+
+    if lotteryTicket <= 0:
+        lotteryTicket = 0
+
+        ticketSoldOut()
+
+        choosenumber()
+
+    else:
+        pass
+
+    #3rd TIER
+    while True:
+        thirdTicket = int(input("Input ticket(s) for TIER 3 drawing : "))
+
+        if thirdTicket in allowedAmount:
+            
+            return thirdTicket
+
+        else:
+            inputErrorMessage()
+
+    lotteryTicket = lotteryTicket - thirdTicket
+
+    print("Ticket left : " + str(lotteryTicket))
+
+    if lotteryTicket <= 0:
+        lotteryTicket = 0
+
+        ticketSoldOut()
+
+        choosenumber()
+
+    else:
+        choosenumber()
 
 
-
-
-
+def choosenumber(firstTicket, secondTicket, thirdTicket):
+    #choose a number for each tier
 
 
 
