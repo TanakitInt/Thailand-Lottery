@@ -1,0 +1,28 @@
+######################################################################
+### Game rules ###
+
+There will be 3 tier winning prizes :
+1st - Random 6 digits (000000 to 999999)
+2nd - Random 3 digits (000 to 999)
+3rd - Random 2 digits (00 to 99)
+
+Each player turn can only buy 50x random numbers at maximum, 3 tiers combined.
+
+You CAN buy a lottery at the same day of the lottery annoucement day.
+Assumed that the lottery is announced on 24.00 o'clock that day.
+
+Assumed a prize for each tier :
+1st : 5000000 THB
+2nd : 30000 THB
+3rd : 2000 THB
+
+Prize will be calculated for matching numbers, 3 tiers combined.
+
+Date for lottery drawing was every 1st and 15th date of each month.
+
+SPECIAL CONDITION, compared to real world lottery.
+- Each player can win only 1 tier price. (Unlimitted amount)
+- This program is EXCLUDING ANY SPECIAL THAILAND HOLIDAY.
+
+### End of game rules ###
+######################################################################
