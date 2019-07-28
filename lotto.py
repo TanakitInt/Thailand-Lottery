@@ -66,46 +66,25 @@ def ticketSoldOut():
 """
         )
 
-def menu():
-    #main menu
+def  insufficientTicket():
+    #Insufficient Ticket
 
     print(
 """
-Menu :
-(1) Start game
-(2) Game rules
-(3) Credits
-(9) Exit
+!!!   INSUFFICIENT TICKET!  !!!
 """
-    )
+        )
 
-    while True:
-        print("For help, type : \"help\"")
-        menuSelection = input("Menu selection : ")
+def restartSelection():
+    #restart ticket amount selection
 
-        if menuSelection == "1":
-            game()
+    print(
+"""
+!!!   TICKET SELECTION RESTART!  !!!
+"""
+        )
 
-        elif menuSelection == "2":
-            rules()
-
-        elif menuSelection == "3":
-            credits()
-
-        elif menuSelection == "9":
-            exit()
-
-        elif menuSelection == "help":
-            menu()
-
-        else:
-            inputErrorMessage()
-
-def game():
-    #game core
-
-    rules()
-
+def dateCheck():
     #current date
     date = datetime.now().strftime('%Y-%m-%d')
 
@@ -118,8 +97,8 @@ def game():
     monthData = int(dateData[1])
     dayData = int(dateData[2])
 
-    #today date and time
-    print("Today time is (Year-Month-Day) :")
+    #today date
+    print("Today date is (Year-Month-Day) :")
     print(date)
 
     print("Next lottery date is (Year-Month-Day) :")
@@ -149,13 +128,18 @@ def game():
     print(str(year) + "-" + str(month) + "-" + str(day))
 
 
+def ticketInput():
     #lottery draw MAX = 50
     lotteryTicket = 50
     allowedAmount = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+    firstTicket = 0
+    secondTicket = 0
+    thirdTicket = 0
+    ticketAmount = [firstTicket, secondTicket, thirdTicket]
 
     print(
 """
-# A MAXIMUM 50 TICKETS CAN BE PURCHASED #
+# A MAXIMUM OF 50 TICKETS CAN BE PURCHASED #
 """
         )
 
@@ -164,8 +148,7 @@ def game():
         firstTicket = int(input("Input ticket(s) for TIER 1 drawing : "))
 
         if firstTicket in allowedAmount:
-            
-            return firstTicket
+            break
 
         else:
             inputErrorMessage()
@@ -174,12 +157,27 @@ def game():
 
     print("Ticket left : " + str(lotteryTicket))
 
-    if lotteryTicket <= 0:
+    if lotteryTicket == 0:
         lotteryTicket = 0
+
+        ticketAmount[0] = 0
 
         ticketSoldOut()
 
-        choosenumber()
+        ticketAmount[0] = firstTicket
+        ticketAmount[1] = 0
+        ticketAmount[2] = 0
+
+        return ticketAmount
+        
+        chooseNumber()
+
+
+    elif lotteryTicket < 0:
+
+        insufficientTicket()
+        restartSelection()
+        ticketInput()
 
     else:
         pass
@@ -189,8 +187,7 @@ def game():
         secondTicket = int(input("Input ticket(s) for TIER 2 drawing : "))
 
         if secondTicket in allowedAmount:
-            
-            return secondTicket
+            break
 
         else:
             inputErrorMessage()
@@ -199,12 +196,27 @@ def game():
 
     print("Ticket left : " + str(lotteryTicket))
 
-    if lotteryTicket <= 0:
+    if lotteryTicket == 0:
         lotteryTicket = 0
+
+        ticketAmount[1] = 0
 
         ticketSoldOut()
 
-        choosenumber()
+        ticketAmount[0] = firstTicket
+        ticketAmount[1] = secondTicket
+        ticketAmount[2] = 0
+
+        return ticketAmount
+        
+        chooseNumber()
+
+
+    elif lotteryTicket < 0:
+
+        insufficientTicket()
+        restartSelection()
+        ticketInput()
 
     else:
         pass
@@ -214,8 +226,7 @@ def game():
         thirdTicket = int(input("Input ticket(s) for TIER 3 drawing : "))
 
         if thirdTicket in allowedAmount:
-            
-            return thirdTicket
+            break
 
         else:
             inputErrorMessage()
@@ -224,30 +235,98 @@ def game():
 
     print("Ticket left : " + str(lotteryTicket))
 
-    if lotteryTicket <= 0:
+    if lotteryTicket == 0:
         lotteryTicket = 0
+
+        ticketAmount[2] = 0
 
         ticketSoldOut()
 
-        choosenumber()
+        ticketAmount[0] = firstTicket
+        ticketAmount[1] = secondTicket
+        ticketAmount[2] = thirdTicket
+
+        return ticketAmount
+        
+        chooseNumber()
+
+
+    elif lotteryTicket < 0:
+
+        insufficientTicket()
+        restartSelection()
+        ticketInput()
 
     else:
-        choosenumber()
+
+        ticketAmount[0] = firstTicket
+        ticketAmount[1] = secondTicket
+        ticketAmount[2] = thirdTicket
+
+        return ticketAmount
+
+        chooseNumber()
 
 
-def choosenumber(firstTicket, secondTicket, thirdTicket):
+    #return a ticket amount to another function
+    
+def chooseNumber(ticketAmount):
     #choose a number for each tier
 
+    #
 
 
+def menu():
+    #main menu
 
+    print(
+"""
+Menu :
+(1) Start game
+(2) Game rules
+(3) Credits
+(9) Exit
+"""
+    )
 
+    while True:
+        print("For help, type : \"help\"")
+        menuSelection = input("Menu selection : ")
 
+        if menuSelection == "1":
+            rules()
+            dateCheck()
+            ticketInput()
 
+        elif menuSelection == "2":
+            rules()
+
+        elif menuSelection == "3":
+            credits()
+
+        elif menuSelection == "9":
+            exit()
+
+        elif menuSelection == "help":
+            menu()
+
+        else:
+            inputErrorMessage()
 
 
 introduction()
+
+def ticketTransfer():
+    #transfer a variable
+
+    ticketAmount = ticketInput()
+
+    chooseNumber(ticketAmount)
+
+ticketTransfer()
+
 menu()
+
 
 
 
