@@ -130,8 +130,9 @@ def dateCheck():
 
 def ticketInput():
     #lottery draw MAX = 50
+
     lotteryTicket = 50
-    allowedAmount = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+    allowedAmount = range(0,51) # 0 to 50
     firstTicket = 0
     secondTicket = 0
     thirdTicket = 0
@@ -267,13 +268,108 @@ def ticketInput():
 
         chooseNumber()
 
-
     #return a ticket amount to another function
-    
+
 def chooseNumber(ticketAmount):
     #choose a number for each tier
 
-    #
+    #ticketAmount[0] is first tier
+    #ticketAmount[1] is second tier
+    #ticketAmount[2] is third tier
+
+    numberFirstTierCount = ticketAmount[0]
+    numberSecondTierCount = ticketAmount[1]
+    numberThirdTierCount = ticketAmount[2]
+
+    #for tier 1
+    numberFirstTier = []
+
+    for i in range(0, numberFirstTierCount):
+        number = int(input("Your number (6 digit) : "))
+        if number > 999999 or number < 0:
+            inputErrorMessage()
+        else:
+            number = str(number)
+            number = number.zfill(6) #fill up the "0"s to string
+            print(number + " Confirmed.")
+            numberFirstTier.append(int(number)) #number to append is int
+
+    #for tier 2
+    numberSecondTier = []
+
+    for i in range(0, numberSecondTierCount):
+        number = int(input("Your number (3 digit) : "))
+        if number > 999 or number < 0:
+            inputErrorMessage()
+        else:
+            number = str(number)
+            number = number.zfill(3) #fill up the "0"s to string
+            print(number + " Confirmed.")
+            numberSecondTier.append(int(number)) #number to append is int
+
+    #for tier 3
+    numberThirdTier = []
+
+    for i in range(0, numberThirdTierCount):
+        number = int(input("Your number (2 digit) : "))
+        if number > 99 or number < 0:
+            inputErrorMessage()
+        else:
+            number = str(number)
+            number = number.zfill(2) #fill up the "0"s to string
+            print(number + " Confirmed.")
+            numberThirdTier.append(int(number)) #number to append is int
+
+
+    #prize calculation
+    prize = 0
+
+    #for tier 1
+    for i in numberFirstTier:
+        if i == sixDigit:
+            prize = prize + 5000000
+        else:
+            pass
+
+    #for tier 2
+    for i in numberSecondTier:
+        if i == threeDigit:
+            prize = prize + 30000
+        else:
+            pass
+
+    #for tier 3
+    for i in numberThirdTier:
+        if i == twoDigit:
+            prize = prize + 2000
+        else:
+            pass
+
+    print(
+"""
+###############################################################
+LOTTERY ANNOUNCEMENT
+
+"""
++ "THE NUMBER FOR SIX DIGIT IS " + str(sixDigit) + '\n'
++ "THE NUMBER FOR THREE DIGIT IS " + str(threeDigit) + '\n'
++ "THE NUMBER FOR TWO DIGIT IS " + str(twoDigit) + '\n' +
+"###############################################################"
+        )
+
+    print(
+"""
+CONGRAGULATION! YOUR PRIZE IS
+"""
+        )
+
+    print(str(prize) + " THB, What a lucky!" + '\n')
+
+
+    #high score
+    
+
+
 
 
 def menu():
@@ -297,6 +393,7 @@ Menu :
             rules()
             dateCheck()
             ticketInput()
+            ticketTransfer()
 
         elif menuSelection == "2":
             rules()
@@ -314,8 +411,6 @@ Menu :
             inputErrorMessage()
 
 
-introduction()
-
 def ticketTransfer():
     #transfer a variable
 
@@ -323,9 +418,11 @@ def ticketTransfer():
 
     chooseNumber(ticketAmount)
 
-ticketTransfer()
-
+introduction()
 menu()
+
+
+
 
 
 

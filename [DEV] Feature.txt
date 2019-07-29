@@ -1,6 +1,6 @@
-- High score with player name
-- Put user input number into list and compare to randomed number
-- Prize calculation
+*- High score with player name
+*- Put user input number into list and compare to randomed number
+*- Prize calculation
 *- Next lottery date calculation
 *- Ticket condition
 
@@ -9,4 +9,9 @@ KEY
 
 Known Bug :
 - Program start with ticket selection instad of main menu in the first time.
-[Not fixed]
+[Fixed]
+- Input a floating number (0.1, 5.7, 10.2 etc...) or string (A, Blahhh, random text etc...) 
+might cause an exit error.
+[Not fixed, partial user error]
+- Ticket tier drawing selection is doubled without user prompt EVERYTIME!
+[Not fixed, programmer error]
