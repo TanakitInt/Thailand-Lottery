@@ -18,7 +18,7 @@ Assumed a prize for each tier :
 
 Prize will be calculated for matching numbers, 3 tiers combined.
 
-Date for lottery drawing was every 1st and 15th date of each month.
+Date for lottery drawing was every 1st and 15th day of each month.
 
 SPECIAL CONDITION, compared to real world lottery.
 - Each player CAN WIN ALL 3 tier price (or less) [Unlimitted amount]
