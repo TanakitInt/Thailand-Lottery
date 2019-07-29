@@ -19,9 +19,9 @@ rewardTwoDigit = 2000
 lottoBuy = 50
 
 #cheat mode
-print(sixDigit)
-print(threeDigit)
-print(twoDigit)
+#print(sixDigit)
+#print(threeDigit)
+#print(twoDigit)
 
 def introduction():
     #intro to the program
