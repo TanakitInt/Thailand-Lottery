@@ -332,21 +332,21 @@ def chooseNumber(ticketAmount):
     #for tier 1
     for i in numberFirstTier:
         if i == sixDigit:
-            prize = prize + 5000000
+            prize = prize + rewardSixDigit
         else:
             pass
 
     #for tier 2
     for i in numberSecondTier:
         if i == threeDigit:
-            prize = prize + 30000
+            prize = prize + rewardThreeDigit
         else:
             pass
 
     #for tier 3
     for i in numberThirdTier:
         if i == twoDigit:
-            prize = prize + 2000
+            prize = prize + rewardTwoDigit
         else:
             pass
 
