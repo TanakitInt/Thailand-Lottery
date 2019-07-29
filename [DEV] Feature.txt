@@ -1,0 +1,12 @@
+- High score with player name
+- Put user input number into list and compare to randomed number
+- Prize calculation
+*- Next lottery date calculation
+*- Ticket condition
+
+KEY
+* = DONE!
+
+Known Bug :
+- Program start with ticket selection instad of main menu in the first time.
+[Not fixed]
