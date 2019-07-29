@@ -18,6 +18,11 @@ rewardTwoDigit = 2000
 
 lottoBuy = 50
 
+#cheat mode
+print(sixDigit)
+print(threeDigit)
+print(twoDigit)
+
 def introduction():
     #intro to the program
 
@@ -367,9 +372,31 @@ CONGRAGULATION! YOUR PRIZE IS
 
 
     #high score
-    
+    print("--------------------------------------------------------" + '\n')
+    username = input("Yourname : ")
 
+    with open("high score.txt", 'r') as file:
+        i = file.read()
 
+        getValue = i.split(",")
+
+        high_username = getValue[0]
+        high_prize = getValue[1]
+
+        if int(high_prize) < prize: #prize in newer game is HIGHER
+            print("NEW HIGH SCORE!!!" + '\n')
+
+            writeIn = str(username) + ", " + str(prize)
+            
+            with open("high score.txt", 'w') as fileWrite:
+                fileWrite.write(writeIn)
+
+        else: #prize in newer game is LOWER
+            pass
+
+        file.close()
+
+    print("--------------------------------------------------------" + '\n')
 
 
 def menu():
@@ -420,10 +447,3 @@ def ticketTransfer():
 
 introduction()
 menu()
-
-
-
-
-
-
-
