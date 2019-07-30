@@ -24,7 +24,7 @@ Have fun :)
 Each player turn can only buy 50x random numbers at maximum, 3 tiers combined.
 
 You CAN buy a lottery at the same day of the lottery annoucement day.
-Assumed that the lottery is announced on 24.00 o'clock that day.
+Assumed that the lottery has been announced on 24.00 o'clock that day.
 
 <b>Assumed a prize for each tier :</b>  
 <i>1st : 5000000 THB</i>  
