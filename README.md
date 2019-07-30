@@ -2,6 +2,9 @@
 
 Let's buy some "หวย"
 
+<b>This is program requires python, please download it at :</b>  
+https://www.python.org/downloads/  
+
 <b>Hello and welcome, lottery fans and buyer!</b>  
 
 Government lottery are well-known by lower wage and income Thais,
